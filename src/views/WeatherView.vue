@@ -54,6 +54,7 @@
             </div>
 
         </v-card>
+        <h1>{{hata}}</h1>
     </div>
 </div>
 </template>
@@ -74,15 +75,15 @@ export default defineComponent({
             degree: "",
             country: "",
             humidity: "",
-            wind_degree: ""
+            wind_degree: "",
+           hata:[]
         }
     },
     methods: {
         handleEvent(): any {
             //console.log(this.value);
-
-            axios
-                .get(`http://api.weatherapi.com/v1/current.json?key=074dad7aa42345a9832135725223110&q=${this.value}`)
+     try {
+      axios.get(`http://api.weatherapi.com/v1/current.json?key=074dad7aa42345a9832135725223110&q=${this.value}`)
                 .then((response) => {
                     //console.log(response)
                     const data = response;
@@ -96,6 +97,12 @@ export default defineComponent({
                     this.wind_degree = data.data.current.wind_degree
                     this.value = ""
                 })
+     } 
+     catch (error) {
+     console.log(error)
+      
+     }
+           
         }
     },
 
