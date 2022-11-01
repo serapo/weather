@@ -6,7 +6,7 @@
         <v-container>
             <v-row>
                 <v-col cols="12" sm="6">
-                    <v-text-field label="Write a location" v-model="value"></v-text-field>
+                    <v-text-field label="Write a location" v-model="value" v-on:keyup.enter="handleEvent"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
                     <v-btn fluid depressed color="primary"  @click="handleEvent"> Search </v-btn>
